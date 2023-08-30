@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Proyecto</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <div class="container">
+    <a class="navbar-brand" href="/shoes" style="font-size: xx-large;">Shoe's Store</a>
+    
+    <ul class="navbar-nav" style="display: contents;";>
+      <li class="nav-item ">
+        <a href="/shoes/new" style="text-decoration: none;">Nuevo </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/shoes">Listar</a>
+      </li>
+      <%- if user_signed_in? %>
+        <li class="nav-item active">
+          <a><%= link_to 'Salir', destroy_user_session_path, method: :delete %></a>
+        </li> 
+      <% else %>
+        <li class="nav-item">
+          <a><%= link_to 'Iniciar', new_user_session_path%></a>
+        </li>
+        <li class="nav-item">
+          <a><%= link_to 'Registrarme', new_user_registration_path%></a>
+        </li>
+      <% end %>
+    </ul>
+    </div>
+  </nav>
+
+  <body>
+    <div class="container">
+    <p class="notice"><%= notice %></p>
+
+      <%= yield %>
+    </div>
+    
+  </body>
+</html>

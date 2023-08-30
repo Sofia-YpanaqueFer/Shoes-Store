@@ -1,0 +1,40 @@
+<%# <p id="notice"><%= notice %>
+<%# </p> %> 
+
+<p>
+  <strong>Name:</strong>
+  <%= @shoe.name %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @shoe.brand.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @shoe.category.name %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @shoe.year %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @shoe.rating %>
+</p>
+
+<figure class="figure">
+  <%= image_tag @shoe.picture.thumb.url, class:'figure-img img-fluid rounded'%>
+  <figcaption class="figure-caption">
+    <%# <strong>Picture:</strong> %>
+    <p><%= @shoe.name %></p>
+  </figcaption>
+</figure>
+
+
+<br>
+<%= link_to 'Edit', edit_shoe_path(@shoe) %> |
+<%= link_to 'Back', shoes_path %>

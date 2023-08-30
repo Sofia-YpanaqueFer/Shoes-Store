@@ -1,0 +1,25 @@
+<%# <p id="notice"><%= notice %>
+
+<center><h1>Shoes</h1></center>
+
+
+  <div class="container">
+    <div class="row">
+      <% @shoes.each do |shoe| %>
+      <div class="col-3">
+        <figure class="figure">
+          <%= image_tag shoe.picture.thumb.url, class:'figure-img img-fluid rounded'%>
+          <%# <img src="..." class="figure-img img-fluid rounded"> %>
+          <figcaption class="figure-caption"><%= shoe.name %> <br>
+            <%= link_to 'Show', shoe_path(shoe) %>
+            <%= link_to 'Edit', edit_shoe_path(shoe) %>
+            <%= link_to 'Destroy', shoe, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </figcaption>
+        </figure>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+
+<%= link_to 'New Shoe', new_shoe_path %>
